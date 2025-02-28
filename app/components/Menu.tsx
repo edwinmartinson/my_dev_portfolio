@@ -3,7 +3,7 @@ import {
   styleMenuContainer,
   styleMenuDownload,
   styleMenuLinks,
-} from "./Menu.css";
+} from "~/styles/app.css";
 import Xbtn from "./Xbtn";
 import Xlink from "./Xlink";
 

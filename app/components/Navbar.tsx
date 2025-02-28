@@ -6,7 +6,7 @@ import {
   styleNavLogo,
   styleNavMenuBtn,
   styleNavWrapper,
-} from "./Navbar.css";
+} from "~/styles/app.css";
 import Xbtn from "./Xbtn";
 import Xlink from "./Xlink";
 

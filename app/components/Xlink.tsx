@@ -1,5 +1,9 @@
 import { Link } from "react-router";
-import { styleActive, styleBase, styleSpan } from "./Xlink.css";
+import {
+  styleLinkActive,
+  styleLinkBase,
+  styleLinkSpan,
+} from "~/styles/app.css";
 
 type XlinkProps = {
   to: string;
@@ -13,10 +17,10 @@ export default function Xlink({ to, varient, isActive, children }: XlinkProps) {
   const isHash = varient === "hash";
 
   return (
-    <Link to={to} className={`${styleBase} ${isActive && styleActive}`}>
+    <Link to={to} className={`${styleLinkBase} ${isActive && styleLinkActive}`}>
       {isBracket && "[ "}
       {isHash && `#`}
-      <span className={styleSpan}>{children}</span>
+      <span className={styleLinkSpan}>{children}</span>
       {isBracket && " ]"}
     </Link>
   );

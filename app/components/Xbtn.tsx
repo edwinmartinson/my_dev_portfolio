@@ -1,5 +1,9 @@
 import { resetStyleBtn } from "~/styles/reset.css";
-import { styleFilled, styleOutline, styleSpan } from "./Xbtn.css";
+import {
+  styleBtnFilled,
+  styleBtnOutline,
+  styleBtnSpan,
+} from "~/styles/app.css";
 
 type XbtnProps = {
   action?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -21,12 +25,12 @@ export default function Xbtn({
 
   return (
     <button
-      className={`${resetStyleBtn} ${isOutline && styleOutline} ${
-        isFilled && styleFilled
+      className={`${resetStyleBtn} ${isOutline && styleBtnOutline} ${
+        isFilled && styleBtnFilled
       } ${className}`}
     >
       {isFilled && "[ "}
-      <span className={`${isOutline && styleSpan}`}>{children}</span>
+      <span className={`${isOutline && styleBtnSpan}`}>{children}</span>
       {isOutline && "()"}
       {isFilled && " ]"}
     </button>
