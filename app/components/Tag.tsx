@@ -1,4 +1,5 @@
 import {
+  colorAccent,
   colorSecondary,
   colorSurfaceGray,
   typeMediumH1,
@@ -17,12 +18,13 @@ type TxtSize = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p1" | "p2" | "p3";
 type TagProps = {
   tag: string;
   tagSize: TxtSize;
-  text: string;
+  children: string | React.ReactNode;
   textSize: TxtSize;
   attribute?: {
     name: string;
     value: string;
   };
+  clrClass?: string;
 };
 
 function getFontClass(txtSize: TxtSize) {
@@ -50,20 +52,38 @@ function getFontClass(txtSize: TxtSize) {
   }
 }
 
-export default function Tag({ tag, text, tagSize, textSize }: TagProps) {
+export default function Tag({
+  tag,
+  children,
+  tagSize,
+  textSize,
+  attribute,
+  clrClass,
+}: TagProps) {
   return (
-    <p>
+    <h1>
       <span className={getFontClass(tagSize)}>
         <span className={colorSurfaceGray}>{`<`}</span>
         <span className={colorSecondary}>{tag}</span>
+        {attribute && (
+          <span>
+            <span className={colorAccent}> {attribute.name}</span>
+            <span className={colorSurfaceGray}>=</span>
+            <span className={colorSurfaceGray}>"</span>
+            {attribute.value}
+            <span className={colorSurfaceGray}>"</span>
+          </span>
+        )}
         <span className={colorSurfaceGray}>{`>`}</span>
       </span>
-      <span className={getFontClass(textSize)}>{text}</span>
+      <span className={`${getFontClass(textSize)} ${clrClass}`}>
+        {children}
+      </span>
       <span className={getFontClass(tagSize)}>
         <span className={colorSurfaceGray}>{`</`}</span>
         <span className={colorSecondary}>{tag}</span>
         <span className={colorSurfaceGray}>{`>`}</span>
       </span>
-    </p>
+    </h1>
   );
 }

@@ -5,4 +5,8 @@ import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
 
 export default defineConfig({
   plugins: [tsconfigPaths(), reactRouter(), vanillaExtractPlugin()],
+  server: {
+    host: "192.168.84.35",
+    port: 5173,
+  },
 });

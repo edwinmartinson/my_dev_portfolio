@@ -19,7 +19,11 @@ export default function NavBar({ isActive }: NavBarProps) {
     <nav className={`${styleNav} ${isActive && styleNavActive}`}>
       <div className={styleNavContainer}>
         <div className={styleNavWrapper}>
-          <img className={styleNavLogo} src="public/2023_avatar.jpg" alt="" />
+          <img
+            className={styleNavLogo}
+            src="/2023_avatar.jpg"
+            alt="Picture of Edwin"
+          />
           <div className={styleNavlinks}>
             <Xlink to="/#hero" varient="bracket" isActive>
               hero

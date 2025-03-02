@@ -25,15 +25,15 @@ export const theme = createGlobalTheme(":root", {
       light: "300",
     },
     size: {
-      h1: "3.815rem",
-      h2: "3.052rem",
-      h3: "2.441rem",
-      h4: "1.953rem",
-      h5: "1.562rem",
-      h6: "1.250rem",
-      p1: "1rem",
-      p2: "0.800rem",
-      p3: "0.640rem",
+      h1: "3.815em",
+      h2: "3.052em",
+      h3: "2.441em",
+      h4: "1.953em",
+      h5: "1.562em",
+      h6: "1.250em",
+      p1: "1em",
+      p2: "0.800em",
+      p3: "0.640em",
     },
   },
   radius: {
@@ -41,6 +41,12 @@ export const theme = createGlobalTheme(":root", {
     md: "0.5rem",
     lg: "0.75rem",
     xl: "1rem",
+  },
+  breakPoints: {
+    a: "88rem",
+    b: "77rem",
+    c: "44rem",
+    d: "40rem",
   },
 });
 

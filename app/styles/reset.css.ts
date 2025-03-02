@@ -3,13 +3,14 @@ import { globalStyle, style } from "@vanilla-extract/css";
 // Box sizing rules
 globalStyle("*, *::before, *::after", {
   boxSizing: "border-box",
+  margin: 0,
+  padding: 0,
+  // border: "1px solid cyan",
 });
 
 // HTML and body height
 globalStyle("html, body", {
   minHeight: "100vh",
-  margin: 0,
-  padding: 0,
 });
 
 // Base HTML and body styles
@@ -20,7 +21,7 @@ globalStyle("html", {
 });
 
 globalStyle("body", {
-  lineHeight: 1.5,
+  // lineHeight: 1.5,
   position: "relative",
 });
 
@@ -42,6 +43,16 @@ globalStyle("h1, h2, h3, h4, button, input, label", {
 
 globalStyle("h1, h2, h3, h4", {
   textWrap: "balance",
+
+  "@media": {
+    "screen and (max-width: 50.5rem)": {
+      fontSize: "0.75rem",
+    },
+
+    "screen and (max-width: 40rem)": {
+      fontSize: "0.5rem",
+    },
+  },
 });
 
 // Links

@@ -1,10 +1,12 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 import { theme } from "./theme.css";
 
 export const styleBody = style({
   backgroundColor: theme.color.clrPrimaryDark,
   color: theme.color.clrSurfaceWhite,
   fontFamily: theme.font.family,
+  padding: "0",
+  overflowX: "hidden",
 });
 
 export const styleMain = style({
@@ -98,19 +100,37 @@ export const styleBtnSpan = style({
 
 // Component: NavBar
 export const styleNav = style({
-  width: "100vw",
-  padding: "1rem",
-  display: "flex",
+  // width: "calc(100dvw - 2rem)",
+  width: "100%",
+  boxSizing: "border-box",
+  display: "grid",
+  gridTemplateColumns: "1fr minmax(0rem, 88rem) 1fr",
   justifyContent: "center",
   position: "absolute",
   top: "0",
+  padding: "0 1rem",
+
+  "@media": {
+    "screen and (max-width: 88rem)": {
+      gridTemplateColumns: "1fr",
+    },
+  },
 });
 
 export const styleNavContainer = style({
-  width: "90rem",
+  boxSizing: "border-box",
+  gridColumn: "2/3",
+  width: "100%",
+  padding: "1rem 0",
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+
+  "@media": {
+    "screen and (max-width: 88rem)": {
+      gridColumn: "1/-1",
+    },
+  },
 });
 
 export const styleNavWrapper = style({
@@ -185,4 +205,141 @@ export const styleMenuDownload = style({
   width: "100%",
   display: "flex",
   justifyContent: "center",
+});
+
+// Section: Hero
+export const styleHero = style({
+  height: "61.375rem",
+  display: "grid",
+  gridTemplateColumns: "repeat(2, 5.5rem)  1fr repeat(2, 5.5rem)",
+  gridTemplateRows: "4.5rem 1fr auto auto",
+  columnGap: "1rem",
+  padding: "0 1rem",
+
+  "@media": {
+    "screen and (max-width: 77rem)": {
+      gridTemplateColumns: "1fr",
+    },
+    "screen and (max-width: 44rem)": {
+      height: "100vh",
+    },
+  },
+});
+
+// Component: Intro
+export const styleIntro = style({
+  gridColumn: "3 / 4",
+  gridRow: "2 / 3",
+  alignSelf: "center",
+  width: "fit-content",
+
+  "@media": {
+    "screen and (max-width: 77rem)": {
+      gridColumn: "1 / -1",
+      justifySelf: "center",
+    },
+  },
+});
+
+export const styleTxtWithPic = style({
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "1rem",
+});
+
+export const styleIntroPic = style({
+  width: "6rem",
+  height: "6rem",
+  aspectRatio: "1/1",
+  borderRadius: "6rem",
+  borderWidth: "0.188rem",
+  borderStyle: "solid",
+  color: theme.color.clrSurfaceWhite,
+
+  "@media": {
+    "screen and (max-width: 44rem)": {
+      display: "none",
+    },
+  },
+});
+
+export const styleStack = style({
+  width: "fit-content",
+  display: "flex",
+  alignItems: "center",
+  gap: "1rem",
+  marginBottom: "1rem",
+});
+
+export const styleStackImg = style({
+  width: "3.5rem",
+  height: "3.5rem",
+  aspectRatio: "1/1",
+
+  "@media": {
+    "screen and (max-width: 40rem)": {
+      width: "1.75rem",
+      height: "1.75rem",
+    },
+  },
+});
+
+export const styleHeroBtn = style({
+  gridColumn: "1 / -1",
+  gridRow: "3 / 4",
+  alignSelf: "center",
+  justifySelf: "center",
+  marginBottom: "5.5rem",
+
+  "@media": {
+    "screen and (max-width: 44rem)": {
+      display: "none",
+    },
+  },
+});
+
+export const styleHeroBar = style({
+  width: "100%",
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  gridColumn: "1 / -1",
+  gridRow: "4 / 5",
+  marginBottom: "2rem",
+
+  "@media": {
+    "screen and (max-width: 44rem)": {
+      flexDirection: "column",
+      gap: "1.75rem",
+    },
+  },
+});
+
+export const styleHeroBarLinks = style({
+  display: "inline-flex",
+  gap: "0.5rem",
+
+  "@media": {
+    "screen and (max-width: 40rem)": {
+      display: "none",
+    },
+  },
+});
+
+export const styleHeroBarSocials = style({
+  display: "none",
+  alignItems: "center",
+  gap: "1.5rem",
+
+  "@media": {
+    "screen and (max-width: 40rem)": {
+      display: "flex",
+    },
+  },
+});
+
+export const styleHeroBarIcons = style({
+  width: "1.75rem",
+  height: "1.75rem",
+  aspectRatio: "1/1",
 });
