@@ -9,12 +9,17 @@ import {
 } from "~/styles/app.css";
 import Xbtn from "./Xbtn";
 import Xlink from "./Xlink";
+import { SiteContext, useSiteContext } from "~/context/AppContext";
 
 type NavBarProps = {
   isActive?: boolean;
 };
 
 export default function NavBar({ isActive }: NavBarProps) {
+  const { dispatch } = useSiteContext(SiteContext);
+
+  const showMenu = () => dispatch({ type: "toggleMenu" });
+
   return (
     <nav className={`${styleNav} ${isActive && styleNavActive}`}>
       <div className={styleNavContainer}>
@@ -25,7 +30,7 @@ export default function NavBar({ isActive }: NavBarProps) {
             alt="Picture of Edwin"
           />
           <div className={styleNavlinks}>
-            <Xlink to="/#hero" varient="bracket" isActive>
+            <Xlink to="/#hero" varient="bracket">
               hero
             </Xlink>
             <Xlink to="/#about_me" varient="bracket">
@@ -38,7 +43,7 @@ export default function NavBar({ isActive }: NavBarProps) {
               contact_me
             </Xlink>
           </div>
-          <Xbtn className={styleNavMenuBtn} varient="outline">
+          <Xbtn className={styleNavMenuBtn} varient="outline" action={showMenu}>
             menu
           </Xbtn>
         </div>

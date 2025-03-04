@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import { applyReset } from "./styles/reset.css";
 import { typeBase } from "./styles/theme.css";
 import { styleBody } from "./styles/app.css";
+import { SiteContextProvider } from "./context/AppContext";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -59,7 +60,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <SiteContextProvider>
+      <Outlet />
+    </SiteContextProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

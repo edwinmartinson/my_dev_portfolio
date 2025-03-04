@@ -48,6 +48,7 @@ export const theme = createGlobalTheme(":root", {
     c: "44rem",
     d: "40rem",
   },
+  sectionSpace: "5rem",
 });
 
 export const typeBase = style({

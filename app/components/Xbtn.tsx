@@ -6,7 +6,7 @@ import {
 } from "~/styles/app.css";
 
 type XbtnProps = {
-  action?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  action?: () => void;
   varient: "outline" | "filled";
   isActive?: boolean;
   className?: string;
@@ -28,6 +28,7 @@ export default function Xbtn({
       className={`${resetStyleBtn} ${isOutline && styleBtnOutline} ${
         isFilled && styleBtnFilled
       } ${className}`}
+      onClick={action}
     >
       {isFilled && "[ "}
       <span className={`${isOutline && styleBtnSpan}`}>{children}</span>

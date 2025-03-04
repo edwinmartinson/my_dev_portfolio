@@ -6,14 +6,20 @@ import {
 } from "~/styles/app.css";
 import Xbtn from "./Xbtn";
 import Xlink from "./Xlink";
+import { SiteContext, useSiteContext } from "~/context/AppContext";
 
 type MenuProps = {};
 
 export default function Menu() {
+  const { dispatch } = useSiteContext(SiteContext);
+  const closeMenu = () => dispatch({ type: "toggleMenu" });
+
   return (
     <section className={styleMenu}>
       <div className={styleMenuContainer}>
-        <Xbtn varient="outline">close</Xbtn>
+        <Xbtn varient="outline" action={closeMenu}>
+          close
+        </Xbtn>
         <div className={styleMenuLinks}>
           <Xlink to="/#hero" varient="bracket" isActive>
             hero

@@ -1,12 +1,32 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { theme } from "./theme.css";
 
+globalStyle("h1, h2, h3", {
+  "@media": {
+    "screen and (max-width: 50.5rem)": {
+      fontSize: "0.75rem",
+    },
+
+    "screen and (max-width: 40rem)": {
+      fontSize: "0.5rem",
+    },
+  },
+});
+
+globalStyle("h6, p", {
+  "@media": {
+    "screen and (max-width: 40rem)": {
+      fontSize: "0.75rem",
+    },
+  },
+});
+
 export const styleBody = style({
   backgroundColor: theme.color.clrPrimaryDark,
   color: theme.color.clrSurfaceWhite,
   fontFamily: theme.font.family,
   padding: "0",
-  overflowX: "hidden",
+  // overflowX: "hidden",
 });
 
 export const styleMain = style({
@@ -215,6 +235,7 @@ export const styleHero = style({
   gridTemplateRows: "4.5rem 1fr auto auto",
   columnGap: "1rem",
   padding: "0 1rem",
+  // marginBottom: theme.sectionBottomMargin,
 
   "@media": {
     "screen and (max-width: 77rem)": {
@@ -293,15 +314,16 @@ export const styleHeroBtn = style({
 
   "@media": {
     "screen and (max-width: 44rem)": {
-      display: "none",
+      // display: "none",
     },
   },
 });
 
-export const styleHeroBar = style({
+// Component: SocailBar
+export const styleSocialBar = style({
   width: "100%",
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "center",
   alignItems: "center",
   gridColumn: "1 / -1",
   gridRow: "4 / 5",
@@ -309,15 +331,16 @@ export const styleHeroBar = style({
 
   "@media": {
     "screen and (max-width: 44rem)": {
-      flexDirection: "column",
       gap: "1.75rem",
     },
   },
 });
 
-export const styleHeroBarLinks = style({
+export const styleSocialBarLinks = style({
   display: "inline-flex",
-  gap: "0.5rem",
+  gap: "1.5rem",
+  flexWrap: "wrap",
+  justifyContent: "center",
 
   "@media": {
     "screen and (max-width: 40rem)": {
@@ -326,7 +349,7 @@ export const styleHeroBarLinks = style({
   },
 });
 
-export const styleHeroBarSocials = style({
+export const styleSocialBarIcons = style({
   display: "none",
   alignItems: "center",
   gap: "1.5rem",
@@ -342,4 +365,170 @@ export const styleHeroBarIcons = style({
   width: "1.75rem",
   height: "1.75rem",
   aspectRatio: "1/1",
+});
+
+// Section: AboutMe
+export const styleAboutMe = style({
+  paddingTop: theme.sectionSpace,
+  paddingLeft: "1rem",
+  paddingRight: "1rem",
+});
+
+export const styleAboutMeContainer = style({
+  marginTop: "2.25rem",
+  width: "100%",
+  display: "grid",
+  gridTemplateColumns: "1fr minmax(0rem, 64rem) 1fr",
+  gap: "1rem",
+});
+
+export const styleAboutMeSubContainer = style({
+  gridColumn: "2 / 3",
+});
+
+export const styleAboutMeFlexContainer = style({
+  display: "flex",
+  gap: "1.5rem",
+
+  "@media": {
+    "screen and (max-width: 53rem)": {
+      flexDirection: "column",
+    },
+  },
+});
+
+export const styleAboutMeContainerArticle = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.75rem",
+  width: "100%",
+});
+
+export const styleAboutMeContainerArticleCollection = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.5rem",
+});
+
+export const styleDivider = style({
+  borderStyle: "dashed",
+  margin: "16px 0",
+});
+
+globalStyle(`&{styleAboutMeContainerArticle}  .p1`, {
+  lineHeight: theme.font.lineHeight.p1,
+});
+
+// Section: Projects
+export const styleProjects = style({
+  paddingTop: theme.sectionSpace,
+  paddingLeft: "1rem",
+  paddingRight: "1rem",
+});
+
+export const styleProjectsContainer = style({
+  marginTop: "2.25rem",
+  width: "100%",
+  display: "grid",
+  gridTemplateColumns: "1fr minmax(0rem, 64rem) 1fr",
+  gap: "1rem",
+});
+
+export const styleProjectsMoreContainer = style({
+  marginTop: "2.5rem",
+  gridColumn: "1 / -1",
+  display: "flex",
+  justifyContent: "center",
+});
+
+// Component: Repo
+export const styleRepo = style({
+  gridColumn: "2 / 3",
+  display: "flex",
+  gap: "5rem",
+  alignSelf: "stretch",
+
+  "@media": {
+    "screen and (max-width: 53rem)": {
+      gap: 0,
+    },
+  },
+});
+
+export const styleRepoContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.75rem",
+});
+
+globalStyle(`&{styleRepoContainer}  .p1`, {
+  lineHeight: theme.font.lineHeight.p1,
+});
+
+export const styleRepoStack = style({
+  display: "flex",
+  alignItems: "center",
+  gap: "0.75rem",
+});
+
+export const styleRepoTech = style({
+  color: theme.color.clrAccent,
+
+  "@media": {
+    "screen and (max-width: 53rem)": {
+      color: theme.color.clrSurfaceGray,
+    },
+  },
+});
+
+export const styleRepoCircleBtn = style({
+  backgroundColor: theme.color.clrPrimaryLight,
+  width: "10rem",
+  height: "10rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "50%",
+
+  "@media": {
+    "screen and (max-width: 53rem)": {
+      display: "none",
+    },
+  },
+});
+
+export const styleRepoCircleBtnIcon = style({
+  display: "flex",
+  width: "4rem",
+  height: "4rem",
+  aspectRatio: "1/1",
+});
+
+export const styleRepoBtn = style({
+  display: "none",
+
+  "@media": {
+    "screen and (max-width: 53rem)": {
+      display: "block",
+    },
+  },
+});
+
+// Section: ContactMe
+export const styleContactMe = style({
+  paddingTop: theme.sectionSpace,
+  paddingLeft: "1rem",
+  paddingRight: "1rem",
+});
+
+export const styleContactMeContainer = style({
+  marginTop: "2.25rem",
+  width: "100%",
+  display: "grid",
+  gridTemplateColumns: "1fr minmax(0rem, 64rem) 1fr",
+  gap: "1rem",
+});
+
+export const styleContactMeSubContainer = style({
+  gridColumn: "2 / 3",
 });

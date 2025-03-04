@@ -43,16 +43,6 @@ globalStyle("h1, h2, h3, h4, button, input, label", {
 
 globalStyle("h1, h2, h3, h4", {
   textWrap: "balance",
-
-  "@media": {
-    "screen and (max-width: 50.5rem)": {
-      fontSize: "0.75rem",
-    },
-
-    "screen and (max-width: 40rem)": {
-      fontSize: "0.5rem",
-    },
-  },
 });
 
 // Links
