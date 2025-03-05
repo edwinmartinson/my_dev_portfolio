@@ -474,11 +474,11 @@ export const styleRepoStack = style({
 export const styleRepoTech = style({
   color: theme.color.clrAccent,
 
-  "@media": {
-    "screen and (max-width: 53rem)": {
-      color: theme.color.clrSurfaceGray,
-    },
-  },
+  // "@media": {
+  //   "screen and (max-width: 53rem)": {
+  //     color: theme.color.clrSurfaceGray,
+  //   },
+  // },
 });
 
 export const styleRepoCircleBtn = style({
@@ -531,4 +531,97 @@ export const styleContactMeContainer = style({
 
 export const styleContactMeSubContainer = style({
   gridColumn: "2 / 3",
+  display: "flex",
+  gap: "5.5rem",
+
+  "@media": {
+    "screen and (max-width: 55rem)": {
+      flexDirection: "column",
+      gap: "3rem",
+    },
+  },
+});
+
+export const styleContactMeForm = style({
+  width: "100%",
+  "::placeholder": {
+    color: theme.color.clrSurfaceGray,
+  },
+});
+
+globalStyle(`${styleContactMeForm} button`, {
+  "@media": {
+    "screen and (max-width: 55rem)": {
+      width: "100%",
+    },
+  },
+});
+
+export const styleContactMeFormContainer = style({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
+  marginBottom: "2rem",
+});
+
+export const styleFieldContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "0.5rem",
+});
+
+export const styleFields = style({
+  backgroundColor: theme.color.clrPrimaryLight,
+  padding: "0.75rem",
+  borderRadius: "0.5rem",
+  color: "inherit",
+  borderWidth: "0px",
+  resize: "none",
+
+  ":focus": {
+    outlineWidth: "1px",
+    outlineStyle: "dashed",
+    outlineColor: theme.color.clrAccent,
+  },
+});
+
+globalStyle("textarea", {
+  height: "15rem",
+});
+
+export const styleContactMeDetails = style({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  gap: "2rem",
+});
+
+export const styleContactMeDetailsContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
+  overflowX: "hidden",
+});
+
+// Section Footer
+export const styleFooter = style({
+  backgroundColor: theme.color.clrPrimaryLight,
+  marginTop: theme.sectionSpace,
+  padding: "2.5rem 0",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: "2rem",
+});
+
+export const styleFooterImg = style({
+  width: "5.9375rem",
+  height: "6rem",
+  aspectRatio: "95/96",
+  borderRadius: "6rem",
+  borderWidth: "3px",
+  borderStyle: "solid",
+  borderColor: theme.color.clrSurfaceWhite,
 });

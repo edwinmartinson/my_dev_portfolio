@@ -55,37 +55,37 @@ export const siteData = {
   ],
   socials: {
     linkedin: {
-      text: "linkedin.com/in/edwin-martinson",
+      text: "@edwin-martinson",
       link: "https://linkedin.com/in/edwin-martinson",
     },
     twitter: {
-      text: "x.com/winomartinson",
+      text: "@winomartinson",
       link: "https://x.com/winomartinson",
     },
     instagram: {
-      text: "instagram.com/edwin_martinson",
+      text: "@edwin_martinson",
       link: "https://instagram.com/edwin_martinson",
     },
     snapchat: {
-      text: "snapchat.com/add/edwin_martinson",
+      text: "@edwin_martinson",
       link: "https://snapchat.com/add/edwin_martinson",
     },
   },
   works: {
     github: {
-      text: "github.com/edwinmartinson",
+      text: "@edwinmartinson",
       link: "https://github.com/edwinmartinson",
     },
     codepen: {
-      text: "codepen.io/edwinmartinson",
+      text: "@edwinmartinson",
       link: "https://codepen.io/edwinmartinson",
     },
     dribbble: {
-      text: "dribbble.com/winomartinson",
+      text: "@winomartinson",
       link: "https://dribbble.com/winomartinson",
     },
     behance: {
-      text: "behance.net/edwinmartinson",
+      text: "@edwinmartinson",
       link: "https://behance.net/edwinmartinson",
     },
   },
@@ -97,3 +97,4 @@ export const siteData = {
 };
 
 export type SiteData = typeof siteData;
+export type SocialsKeys = keyof typeof siteData.socials;

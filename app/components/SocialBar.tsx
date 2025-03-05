@@ -85,12 +85,6 @@ export default function SocialBar() {
           />
         </Link>
       </span>
-      {/* <p>
-        <span className={colorAccent}>{"{ "}</span>
-        <span className={colorSecondary}>isOpenToWork:</span>
-        <span>{isOpenForWork ? " true" : " false"}</span>
-        <span className={colorAccent}>{" }"}</span>
-      </p> */}
     </div>
   );
 }

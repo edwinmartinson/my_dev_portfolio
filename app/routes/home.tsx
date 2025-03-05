@@ -8,6 +8,7 @@ import AboutMe from "~/sections/AboutMe";
 import Hero from "~/sections/Hero";
 import Project from "~/sections/Projects";
 import ContactMe from "~/sections/ContactMe";
+import Footer from "~/sections/Footer";
 
 export async function loader({}: Route.LoaderArgs) {
   return siteData;
@@ -25,6 +26,7 @@ export default function Home() {
         <AboutMe />
         <Project />
         <ContactMe />
+        <Footer />
       </main>
     </>
   );
