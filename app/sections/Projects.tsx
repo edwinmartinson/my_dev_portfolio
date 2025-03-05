@@ -1,21 +1,31 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import Repo from "~/components/Repo";
 import Tag from "~/components/Tag";
-import Xbtn from "~/components/Xbtn";
 import Xlink from "~/components/Xlink";
+import { useSiteContext } from "~/context/AppContext";
 import type { SiteData } from "~/data";
+import useOffsetTop from "~/hooks/useOffsetTop";
 import {
   styleProjects,
   styleProjectsContainer,
   styleProjectsMoreContainer,
-  styleRepoContainer,
 } from "~/styles/app.css";
 
 export default function Project() {
   const { projects, works }: SiteData = useLoaderData();
+  const [ref, offsetTop] = useOffsetTop<HTMLElement>();
+  const { dispatch } = useSiteContext();
+
+  useEffect(() => {
+    dispatch({
+      type: "position",
+      payload: { pos: "posProjects", val: offsetTop },
+    });
+  }, [offsetTop]);
 
   return (
-    <section id="projects" className={styleProjects}>
+    <section ref={ref} id="projects" className={styleProjects}>
       <Tag tag="h2" tagSize="h6" textSize="h2">
         Projects
       </Tag>

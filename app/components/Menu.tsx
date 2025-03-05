@@ -11,8 +11,8 @@ import { SiteContext, useSiteContext } from "~/context/AppContext";
 type MenuProps = {};
 
 export default function Menu() {
-  const { dispatch } = useSiteContext(SiteContext);
-  const closeMenu = () => dispatch({ type: "toggleMenu" });
+  const { state, dispatch } = useSiteContext(SiteContext);
+  const closeMenu = () => dispatch({ type: "toggleMenu", payload: false });
 
   return (
     <section className={styleMenu}>
@@ -21,16 +21,16 @@ export default function Menu() {
           close
         </Xbtn>
         <div className={styleMenuLinks}>
-          <Xlink to="/#hero" varient="bracket" isActive>
+          <Xlink varient="bracket" scrollTop={0}>
             hero
           </Xlink>
-          <Xlink to="/#about_me" varient="bracket">
+          <Xlink varient="bracket" scrollTop={state.posAboutMe}>
             about_me
           </Xlink>
-          <Xlink to="/#projects" varient="bracket">
+          <Xlink varient="bracket" scrollTop={state.posProjects}>
             projects
           </Xlink>
-          <Xlink to="/#contact_me" varient="bracket">
+          <Xlink varient="bracket" scrollTop={state.posContactMe}>
             contact_me
           </Xlink>
         </div>

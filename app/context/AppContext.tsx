@@ -2,21 +2,38 @@ import { createContext, useContext, useReducer } from "react";
 
 type InitialState = typeof initialState;
 
-type ReducerAction = {
-  type: "toggleMenu" | "new";
-  payload?: any;
-};
+type ReducerAction =
+  | { type: "toggleMenu"; payload: boolean }
+  | {
+      type: "position";
+      payload: {
+        pos: "posAboutMe" | "posProjects" | "posContactMe";
+        val: number;
+      };
+    }
+  | {
+      type: "navActive";
+      payload: boolean;
+    };
 
 const initialState = {
   showMenu: false,
+  posAboutMe: 0,
+  posProjects: 0,
+  posContactMe: 0,
+  isNavActive: false,
 };
 
 function reducer(state: InitialState, action: ReducerAction) {
-  const { type, payload } = action;
-
-  switch (type) {
+  switch (action.type) {
     case "toggleMenu":
-      return { ...state, showMenu: !state.showMenu };
+      return { ...state, showMenu: action.payload };
+
+    case "position":
+      return { ...state, [action.payload.pos]: action.payload.val };
+
+    case "navActive":
+      return { ...state, isNavActive: action.payload };
 
     default:
       throw new Error("Invalid action type");
@@ -32,8 +49,8 @@ export const SiteContext = createContext<SiteContextType | undefined>(
   undefined
 );
 
-export function useSiteContext(context: typeof SiteContext) {
-  const state = useContext(context);
+export function useSiteContext(context?: typeof SiteContext) {
+  const state = useContext(context || SiteContext);
 
   if (state === undefined) {
     throw new Error("SiteContextProvider not setup.");

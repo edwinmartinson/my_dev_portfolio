@@ -126,7 +126,7 @@ export const styleNav = style({
   display: "grid",
   gridTemplateColumns: "1fr minmax(0rem, 88rem) 1fr",
   justifyContent: "center",
-  position: "absolute",
+  position: "sticky",
   top: "0",
   padding: "0 1rem",
 
@@ -173,6 +173,7 @@ export const styleNavActive = style([
   styleNav,
   {
     backgroundColor: theme.color.clrPrimaryLight,
+    position: "sticky",
   },
 ]);
 
@@ -198,7 +199,7 @@ export const styleNavMenuBtn = style({
 
 // Component: Menu
 export const styleMenu = style({
-  position: "absolute",
+  position: "fixed",
   top: 0,
   width: "100vw",
   height: "100vh",
@@ -232,7 +233,7 @@ export const styleHero = style({
   height: "61.375rem",
   display: "grid",
   gridTemplateColumns: "repeat(2, 5.5rem)  1fr repeat(2, 5.5rem)",
-  gridTemplateRows: "4.5rem 1fr auto auto",
+  gridTemplateRows: "0rem 1fr auto auto",
   columnGap: "1rem",
   padding: "0 1rem",
   // marginBottom: theme.sectionBottomMargin,

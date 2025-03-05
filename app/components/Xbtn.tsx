@@ -6,7 +6,7 @@ import {
 } from "~/styles/app.css";
 
 type XbtnProps = {
-  action?: () => void;
+  action?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   varient: "outline" | "filled";
   isActive?: boolean;
   className?: string;

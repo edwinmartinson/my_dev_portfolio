@@ -9,17 +9,21 @@ import Hero from "~/sections/Hero";
 import Project from "~/sections/Projects";
 import ContactMe from "~/sections/ContactMe";
 import Footer from "~/sections/Footer";
+import { useWindowScroll } from "@uidotdev/usehooks";
+import { useEffect } from "react";
 
 export async function loader({}: Route.LoaderArgs) {
   return siteData;
 }
 
 export default function Home() {
-  const { state } = useSiteContext(SiteContext);
+  const { dispatch, state } = useSiteContext();
+  const [position, scrollTo] = useWindowScroll();
+  let y = position.y || 0;
 
   return (
     <>
-      <NavBar />
+      <NavBar isActive={y > state.posAboutMe} />
       {state.showMenu && <Menu />}
       <main className={`${styleMain}`}>
         <Hero />

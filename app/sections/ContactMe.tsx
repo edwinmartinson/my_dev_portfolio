@@ -15,11 +15,24 @@ import TsLine from "~/components/TsLine";
 import Xbtn from "~/components/Xbtn";
 import { colorSurfaceGray, typeRegularH6 } from "~/styles/theme.css";
 import type { SiteData } from "~/data";
+import useOffsetTop from "~/hooks/useOffsetTop";
+import { useSiteContext } from "~/context/AppContext";
+import { useEffect } from "react";
 
 export default function ContactMe() {
+  const [ref, offsetTop] = useOffsetTop<HTMLElement>();
+  const { dispatch } = useSiteContext();
   const { socials, works, email }: SiteData = useLoaderData();
+
+  useEffect(() => {
+    dispatch({
+      type: "position",
+      payload: { pos: "posContactMe", val: offsetTop },
+    });
+  }, [offsetTop]);
+
   return (
-    <section id="contact_me" className={styleContactMe}>
+    <section ref={ref} id="contact_me" className={styleContactMe}>
       <Tag tag="h2" tagSize="h6" textSize="h2">
         Contact Me
       </Tag>

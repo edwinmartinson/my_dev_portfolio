@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import JsonLine from "~/components/JsonLine";
 import Tag from "~/components/Tag";
+import { useSiteContext } from "~/context/AppContext";
 import type { SiteData } from "~/data";
+import useOffsetTop from "~/hooks/useOffsetTop";
 import {
   styleAboutMe,
   styleAboutMeContainer,
@@ -11,18 +14,24 @@ import {
   styleAboutMeSubContainer,
   styleAboutMeFlexContainer,
 } from "~/styles/app.css";
-import {
-  colorSurfaceGray,
-  typeRegularH6,
-  typeRegularP1,
-} from "~/styles/theme.css";
+import { colorSurfaceGray, typeRegularH6 } from "~/styles/theme.css";
 
 export default function AboutMe() {
+  const [ref, offsetTop] = useOffsetTop<HTMLElement>();
+  const { dispatch } = useSiteContext();
+
   const { summary, education, stack, experience }: SiteData = useLoaderData();
   const stackKeys = Object.keys(stack);
 
+  useEffect(() => {
+    dispatch({
+      type: "position",
+      payload: { pos: "posAboutMe", val: offsetTop },
+    });
+  }, [offsetTop]);
+
   return (
-    <section id="about_me" className={styleAboutMe}>
+    <section ref={ref} id="about_me" className={styleAboutMe}>
       <Tag tag="h2" tagSize="h6" textSize="h2">
         About Me
       </Tag>
