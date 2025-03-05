@@ -33,7 +33,7 @@ export default function Intro() {
         </Tag>
         <img
           className={styleIntroPic}
-          src="/2023_avatar.jpg"
+          src="/avater.webp"
           alt="Picture of Edwin"
         />
       </span>

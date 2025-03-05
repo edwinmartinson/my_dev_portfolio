@@ -11,7 +11,7 @@ export default function Footer() {
       <Tag tag="h2" tagSize="h6" textSize="h2">
         Thanks for visiting
       </Tag>
-      <img className={styleFooterImg} src="/2023_avatar.jpg" alt="logo" />
+      <img className={styleFooterImg} src="/avater.webp" alt="logo" />
       <p>
         <span className={colorAccent}>{"{ "}</span>
         <span className={colorSecondary}>isOpenToWork:</span>

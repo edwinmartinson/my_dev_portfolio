@@ -15,16 +15,30 @@ import { SiteContextProvider } from "./context/AppContext";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Edwin Martinson" },
+    { title: "Dev Portfolio" },
+    {
+      name: "author",
+      content: "Edwin Martinson",
+    },
     {
       name: "description",
       content:
-        "Web Developer with experience in full-stack development, specializing in TypeScript, React.js and Node.js. Proficient in working with relational and document databases like MySQL, PostgreSQL and MongoDB.",
+        "A Full-stack web developer, with experience in crafting production ready applications with technologies like react.js, next.js and node.js. Along with robust relational databases like MySQL and PostgreSQL. With a strong focus on product design and application-data security.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Edwin Martinson, Web Developer, Full-stack, Software Engineer, UI/UX Designer, Product Designer, TypeScript, React.js, Node.js, Deno, MySQL, PostgreSQL",
     },
   ];
 }
 
 export const links: Route.LinksFunction = () => [
+  {
+    rel: "icon",
+    type: "image/png",
+    href: "/favicon.jpg",
+  },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

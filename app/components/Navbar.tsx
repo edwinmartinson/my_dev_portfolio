@@ -33,7 +33,7 @@ export default function NavBar({ isActive }: NavBarProps) {
         <div className={styleNavWrapper}>
           <img
             className={styleNavLogo}
-            src="/2023_avatar.jpg"
+            src="/avater.webp"
             alt="Picture of Edwin"
           />
           <div className={styleNavlinks}>
