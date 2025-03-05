@@ -1,4 +1,4 @@
-import { SiteContext, useSiteContext } from "~/context/AppContext";
+import { useSiteContext } from "~/context/AppContext";
 import { styleMain } from "~/styles/app.css";
 import NavBar from "~/components/Navbar";
 import Menu from "~/components/Menu";
@@ -10,15 +10,14 @@ import Project from "~/sections/Projects";
 import ContactMe from "~/sections/ContactMe";
 import Footer from "~/sections/Footer";
 import { useWindowScroll } from "@uidotdev/usehooks";
-import { useEffect } from "react";
 
 export async function loader({}: Route.LoaderArgs) {
   return siteData;
 }
 
 export default function Home() {
-  const { dispatch, state } = useSiteContext();
-  const [position, scrollTo] = useWindowScroll();
+  const { state } = useSiteContext();
+  const [position, _] = useWindowScroll();
   let y = position.y || 0;
 
   return (

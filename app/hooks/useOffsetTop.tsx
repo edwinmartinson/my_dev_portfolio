@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, type RefObject } from "react";
+import { useState, useEffect, useRef, type RefObject } from "react";
 
 // Custom hook to calculate the distance from the document top
 export default function useOffsetTop<T extends HTMLElement>(): [

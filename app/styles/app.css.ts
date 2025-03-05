@@ -416,7 +416,7 @@ export const styleDivider = style({
   margin: "16px 0",
 });
 
-globalStyle(`&{styleAboutMeContainerArticle}  .p1`, {
+globalStyle(`${styleAboutMeContainerArticle}  .p1`, {
   lineHeight: theme.font.lineHeight.p1,
 });
 
@@ -462,7 +462,7 @@ export const styleRepoContainer = style({
   gap: "0.75rem",
 });
 
-globalStyle(`&{styleRepoContainer}  .p1`, {
+globalStyle(`${styleRepoContainer}  .p1`, {
   lineHeight: theme.font.lineHeight.p1,
 });
 

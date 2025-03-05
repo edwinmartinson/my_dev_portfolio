@@ -4,7 +4,6 @@ import Xbtn from "~/components/Xbtn";
 import { styleHero, styleHeroBtn } from "~/styles/app.css";
 import { useSiteContext } from "~/context/AppContext";
 import { useIntersectionObserver, useWindowScroll } from "@uidotdev/usehooks";
-import { useEffect } from "react";
 
 export default function Hero() {
   const { state } = useSiteContext();
