@@ -46,11 +46,35 @@ export const siteData = {
   ],
   projects: [
     {
-      title: "Lorem ipsum dolor sit amet, consectetur adipiscing",
+      title: "Date Calculator (Multi-stack)",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eu fugiat nullapariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui",
-      stack: ["AAAA", "BBB", "CCC", "DDD"],
-      link: "https://github.com/edwinmartinson",
+        "This project is a simple yet effective Date Calculator built using React, Angular, Vue, Svelte, and Solid. The goal was to challenge myself by working with technologies I hadn't explored before. The application allows users to input a number of days, and it calculates the future or past date along with the corresponding weekday.",
+      stack: ["React", "Angular", "Vue", "Svelte", "Solid"],
+      link: "https://github.com/edwinmartinson/date_calculator",
+    },
+    {
+      title: "Text Stream API (Multi-stack)",
+      description:
+        "This project is a Text Streaming API implemented across multiple JavaScript backend frameworks and runtimes. The API streams text data to the frontend in real-time, allowing for dynamic content updates without requiring polling. To broaden my experience with different backend environments, I implemented the API using: Oak (Deno), Express (Node.js), Elysia (Bun), Hono (Bun), Fastify (Node.js), Encore (Encore SDK + Node.js),",
+      stack: [
+        "Node.js",
+        "Deno",
+        "Bun",
+        "Express",
+        "Oak",
+        "Elysia",
+        "Hono",
+        "Fastify",
+        "Encore",
+      ],
+      link: "https://github.com/edwinmartinson/text_stream_api",
+    },
+    {
+      title: "Interbank Reconciliation System",
+      description:
+        "This is a full-stack Interbank Reconciliation System built with: Frontend: React (TypeScript), Backend: Node.js (TypeScript) with Drizzle ORM, Database: PostgreSQL. The system automates the reconciliation of financial transactions from multiple sources, including: APIs (handling various authentication methods), Remote directories (FTP servers), Manual document uploads (supporting MT940, CSV, Excel, and more). By default, the system performs reconciliation at the end of the day, ensuring accuracy in transaction records. This project integrates various data formats and protocols, making it a robust solution for financial reconciliation workflows.",
+      stack: ["React", "Node.js", "PostgreSQL", "Drizzle ORM"],
+      link: "https://github.com/edwinmartinson/reconciler_backend",
     },
   ],
   socials: {

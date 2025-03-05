@@ -470,16 +470,11 @@ export const styleRepoStack = style({
   display: "flex",
   alignItems: "center",
   gap: "0.75rem",
+  flexWrap: "wrap",
 });
 
 export const styleRepoTech = style({
   color: theme.color.clrAccent,
-
-  // "@media": {
-  //   "screen and (max-width: 53rem)": {
-  //     color: theme.color.clrSurfaceGray,
-  //   },
-  // },
 });
 
 export const styleRepoCircleBtn = style({

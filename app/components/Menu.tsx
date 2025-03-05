@@ -10,6 +10,13 @@ import { SiteContext, useSiteContext } from "~/context/AppContext";
 
 type MenuProps = {};
 
+const downloadResume = () => {
+  const link = document.createElement("a");
+  link.href = "/resume-v1.2.pdf";
+  link.download = "edwinmartinson_resume.pdf";
+  link.click();
+};
+
 export default function Menu() {
   const { state, dispatch } = useSiteContext(SiteContext);
   const closeMenu = () => dispatch({ type: "toggleMenu", payload: false });
@@ -36,7 +43,9 @@ export default function Menu() {
         </div>
 
         <div className={styleMenuDownload}>
-          <Xbtn varient="filled">Download resume</Xbtn>
+          <Xbtn varient="filled" action={downloadResume}>
+            Download resume
+          </Xbtn>
         </div>
       </div>
     </section>

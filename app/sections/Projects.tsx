@@ -30,30 +30,15 @@ export default function Project() {
         Projects
       </Tag>
       <div className={styleProjectsContainer}>
-        <Repo
-          title={projects.at(0)!.title}
-          description={projects.at(0)!.description}
-          stack={projects.at(0)!.stack}
-          link={projects.at(0)!.link}
-        />
-        <Repo
-          title={projects.at(0)!.title}
-          description={projects.at(0)!.description}
-          stack={projects.at(0)!.stack}
-          link={projects.at(0)!.link}
-        />
-        <Repo
-          title={projects.at(0)!.title}
-          description={projects.at(0)!.description}
-          stack={projects.at(0)!.stack}
-          link={projects.at(0)!.link}
-        />
-        <Repo
-          title={projects.at(0)!.title}
-          description={projects.at(0)!.description}
-          stack={projects.at(0)!.stack}
-          link={projects.at(0)!.link}
-        />
+        {projects.map((item, index) => (
+          <Repo
+            key={index}
+            title={item.title}
+            description={item.description}
+            stack={item.stack}
+            link={item.link}
+          />
+        ))}
       </div>
       <div className={styleProjectsMoreContainer}>
         <p>

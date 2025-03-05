@@ -10,6 +10,7 @@ import {
   styleRepoTech,
 } from "~/styles/app.css";
 import {
+  colorAccent,
   colorSecondary,
   colorSurfaceGray,
   typeMediumH6,
@@ -35,8 +36,9 @@ export default function Repo({ title, description, stack, link }: RepoProps) {
         <p className="p1">{description}</p>
         <div className={styleRepoStack}>
           {stack.map((tech, index) => (
-            <span key={index} className={styleRepoTech}>
-              #{tech}
+            <span key={index}>
+              <span className={colorSecondary}>#</span>
+              <span className={colorAccent}>{tech}</span>
             </span>
           ))}
         </div>

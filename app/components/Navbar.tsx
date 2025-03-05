@@ -15,6 +15,13 @@ type NavBarProps = {
   isActive?: boolean;
 };
 
+const downloadResume = () => {
+  const link = document.createElement("a");
+  link.href = "/resume-v1.2.pdf";
+  link.download = "edwinmartinson_resume.pdf";
+  link.click();
+};
+
 export default function NavBar({ isActive }: NavBarProps) {
   const { dispatch, state } = useSiteContext();
 
@@ -47,7 +54,9 @@ export default function NavBar({ isActive }: NavBarProps) {
             menu
           </Xbtn>
         </div>
-        <Xbtn varient="filled">resume</Xbtn>
+        <Xbtn varient="filled" action={downloadResume}>
+          resume
+        </Xbtn>
       </div>
     </nav>
   );
