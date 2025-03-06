@@ -10,6 +10,7 @@ type XbtnProps = {
   varient: "outline" | "filled";
   isActive?: boolean;
   className?: string;
+  disabled?: boolean;
   children: string;
 };
 
@@ -18,6 +19,7 @@ export default function Xbtn({
   varient,
   isActive,
   className,
+  disabled,
   children,
 }: XbtnProps) {
   const isOutline = varient === "outline";
@@ -29,6 +31,7 @@ export default function Xbtn({
         isFilled && styleBtnFilled
       } ${className}`}
       onClick={action}
+      disabled={disabled}
     >
       {isFilled && "[ "}
       <span className={`${isOutline && styleBtnSpan}`}>{children}</span>

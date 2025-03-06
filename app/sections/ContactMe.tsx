@@ -41,7 +41,7 @@ export default function ContactMe() {
           <Form className={styleContactMeForm}>
             <div className={styleContactMeFormContainer}>
               <h6 className={`${typeRegularH6} ${colorSurfaceGray}`}>
-                ### contact form
+                ### contact form (disabled)
               </h6>
               <label className={styleFieldContainer}>
                 <TsLine varient="type" name="name" value="string" />
@@ -49,6 +49,7 @@ export default function ContactMe() {
                   className={styleFields}
                   type="text"
                   placeholder="eg: Theo Brown"
+                  disabled
                 />
               </label>
               <label className={styleFieldContainer}>
@@ -57,6 +58,7 @@ export default function ContactMe() {
                   className={styleFields}
                   type="email"
                   placeholder="eg: foo@bar.com"
+                  disabled
                 />
               </label>
               <label className={styleFieldContainer}>
@@ -64,10 +66,13 @@ export default function ContactMe() {
                 <textarea
                   className={styleFields}
                   placeholder="eg: Type something..."
+                  disabled
                 />
               </label>
             </div>
-            <Xbtn varient="filled">send</Xbtn>
+            <Xbtn varient="filled" disabled>
+              send
+            </Xbtn>
           </Form>
           <div className={styleContactMeDetails}>
             <div className={styleContactMeDetailsContainer}>
