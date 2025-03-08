@@ -13,7 +13,7 @@ import {
 } from "~/styles/app.css";
 
 export default function Project() {
-  const { projects, works }: SiteData = useLoaderData();
+  const { projects, works, sectionTitle }: SiteData = useLoaderData();
   const [ref, offsetTop] = useOffsetTop<HTMLElement>();
   const { dispatch } = useSiteContext();
 
@@ -27,7 +27,7 @@ export default function Project() {
   return (
     <section ref={ref} id="projects" className={styleProjects}>
       <Tag tag="h2" tagSize="h6" textSize="h2">
-        Projects
+        {sectionTitle.projects}
       </Tag>
       <div className={styleProjectsContainer}>
         {projects.map((item, index) => (

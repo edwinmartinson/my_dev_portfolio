@@ -5,6 +5,7 @@ import {
   styleRepoBtn,
   styleRepoCircleBtn,
   styleRepoCircleBtnIcon,
+  styleRepoCircleBtnLink,
   styleRepoContainer,
   styleRepoStack,
   styleRepoTech,
@@ -47,7 +48,7 @@ export default function Repo({ title, description, stack, link }: RepoProps) {
         </Xbtn>
         <hr className={`${styleDivider} ${colorSurfaceGray}`} />
       </div>
-      <Link to={link}>
+      <Link to={link} className={styleRepoCircleBtnLink}>
         <div className={styleRepoCircleBtn}>
           <img
             className={styleRepoCircleBtnIcon}

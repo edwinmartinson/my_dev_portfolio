@@ -20,7 +20,8 @@ export default function AboutMe() {
   const [ref, offsetTop] = useOffsetTop<HTMLElement>();
   const { dispatch } = useSiteContext();
 
-  const { summary, education, stack, experience }: SiteData = useLoaderData();
+  const { summary, education, stack, experience, sectionTitle }: SiteData =
+    useLoaderData();
   const stackKeys = Object.keys(stack);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function AboutMe() {
   return (
     <section ref={ref} id="about_me" className={styleAboutMe}>
       <Tag tag="h2" tagSize="h6" textSize="h2">
-        About Me
+        {sectionTitle.aboutMe}
       </Tag>
       <div className={styleAboutMeContainer}>
         <article

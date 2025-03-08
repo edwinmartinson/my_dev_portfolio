@@ -21,6 +21,10 @@ globalStyle("h6, p", {
   },
 });
 
+globalStyle(`.p1`, {
+  lineHeight: theme.font.lineHeight.p1,
+});
+
 export const styleBody = style({
   backgroundColor: theme.color.clrPrimaryDark,
   color: theme.color.clrSurfaceWhite,
@@ -45,6 +49,9 @@ export const styleLinkBase = style({
 
   ":focus": {
     color: theme.color.clrSecondary,
+    outlineColor: theme.color.clrAccent,
+    outlineStyle: "dashed",
+    outlineWidth: "1px",
   },
 
   ":active": {
@@ -416,10 +423,6 @@ export const styleDivider = style({
   margin: "16px 0",
 });
 
-globalStyle(`${styleAboutMeContainerArticle}  .p1`, {
-  lineHeight: theme.font.lineHeight.p1,
-});
-
 // Section: Projects
 export const styleProjects = style({
   paddingTop: theme.sectionSpace,
@@ -462,10 +465,6 @@ export const styleRepoContainer = style({
   gap: "0.75rem",
 });
 
-globalStyle(`${styleRepoContainer}  .p1`, {
-  lineHeight: theme.font.lineHeight.p1,
-});
-
 export const styleRepoStack = style({
   display: "flex",
   alignItems: "center",
@@ -475,6 +474,15 @@ export const styleRepoStack = style({
 
 export const styleRepoTech = style({
   color: theme.color.clrAccent,
+});
+
+export const styleRepoCircleBtnLink = style({
+  height: "fit-content",
+  ":focus": {
+    outlineColor: theme.color.clrAccent,
+    outlineStyle: "dashed",
+    outlineWidth: "1px",
+  },
 });
 
 export const styleRepoCircleBtn = style({
@@ -604,6 +612,7 @@ export const styleContactMeDetailsContainer = style({
 export const styleFooter = style({
   backgroundColor: theme.color.clrPrimaryLight,
   marginTop: theme.sectionSpace,
+  width: "100%",
   padding: "2.5rem 0",
   display: "flex",
   flexDirection: "column",
@@ -620,4 +629,52 @@ export const styleFooterImg = style({
   borderWidth: "3px",
   borderStyle: "solid",
   borderColor: theme.color.clrSurfaceWhite,
+});
+
+// component: Error boundary
+export const styleError = style({
+  width: "100vw",
+  height: "100vh",
+  display: "grid",
+});
+
+export const styleErrorArticle = style({
+  justifySelf: "center",
+  alignSelf: "center",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
+//  Page: Message
+export const styleMessage = style({
+  width: "100vw",
+  height: "100vh",
+  display: "grid",
+});
+
+export const styleMessageSection = style({
+  backgroundColor: theme.color.clrPrimaryLight,
+  justifySelf: "center",
+  alignSelf: "center",
+  maxWidth: "28rem",
+  borderRadius: "0.75rem",
+  display: "flex",
+  flexDirection: "column",
+  gap: "2.5rem",
+  padding: "1.5rem",
+});
+
+export const styleMessageDetails = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
+});
+
+export const styleTsLineLink = style({
+  ":focus": {
+    outlineColor: theme.color.clrAccent,
+    outlineStyle: "dashed",
+    outlineWidth: "1px",
+  },
 });

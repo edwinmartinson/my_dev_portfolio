@@ -9,13 +9,20 @@ import {
 
 import type { Route } from "./+types/root";
 import { applyReset } from "./styles/reset.css";
-import { typeBase } from "./styles/theme.css";
-import { styleBody } from "./styles/app.css";
+import {
+  colorAccent,
+  colorSecondary,
+  colorSurfaceGray,
+  typeBase,
+  typeRegularH6,
+} from "./styles/theme.css";
+import { styleBody, styleError, styleErrorArticle } from "./styles/app.css";
 import { SiteContextProvider } from "./context/AppContext";
+import Xlink from "./components/Xlink";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Dev Portfolio" },
+    { title: "Edwin Martinson | Web Developer" },
     {
       name: "author",
       content: "Edwin Martinson",
@@ -82,15 +89,15 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
+  let message = "What the fuck.";
+  let details = "Some shit just happened.";
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
     message = error.status === 404 ? "404" : "Error";
     details =
       error.status === 404
-        ? "The requested page could not be found."
+        ? "Sorry, page not found."
         : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
@@ -98,14 +105,43 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <SiteContextProvider>
+      <main className={styleError}>
+        <article className={styleErrorArticle}>
+          <h1>
+            <span className={typeRegularH6}>
+              <span className={colorSurfaceGray}>{`<`}</span>
+              <span className={colorSecondary}>h1</span>
+              <span className={colorSurfaceGray}>{`>`}</span>
+            </span>
+            <span className={colorSecondary} style={{ fontSize: "12.5em" }}>
+              {message === "404" ? (
+                <span>
+                  4<span className={colorAccent}>0</span>4
+                </span>
+              ) : (
+                <span>
+                  Err<span className={colorAccent}>o</span>r
+                </span>
+              )}
+            </span>
+            <span className={typeRegularH6}>
+              <span className={colorSurfaceGray}>{`</`}</span>
+              <span className={colorSecondary}>h1</span>
+              <span className={colorSurfaceGray}>{`>`}</span>
+            </span>
+          </h1>
+          <p>
+            <span>{details}</span>
+            {message === "404" && (
+              <span>
+                &nbsp;Return to <Xlink varient="bracket">homepage</Xlink>
+              </span>
+            )}
+          </p>
+          {/* <p className={colorSurfaceGray}>{stack}</p> */}
+        </article>
+      </main>
+    </SiteContextProvider>
   );
 }

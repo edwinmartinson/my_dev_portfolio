@@ -20,6 +20,8 @@ export default function Home() {
   const [position, _] = useWindowScroll();
   let y = position.y || 0;
 
+  // throw new Error("Error: I am intentionally throwing an error");
+
   return (
     <>
       <NavBar isActive={y > state.posAboutMe} />

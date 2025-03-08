@@ -14,6 +14,10 @@ type ReducerAction =
   | {
       type: "navActive";
       payload: boolean;
+    }
+  | {
+      type: "messageSent";
+      payload: boolean;
     };
 
 const initialState = {

@@ -117,7 +117,11 @@ export const siteData = {
     text: "edwinotumartinson@outlook.com",
     link: "mailto:edwinotumartinson@outlook.com",
   },
-  resume: "https://",
+  sectionTitle: {
+    aboutMe: "Get to know me",
+    projects: "Stuff i have done",
+    contactMe: "Get in touch",
+  },
 };
 
 export type SiteData = typeof siteData;

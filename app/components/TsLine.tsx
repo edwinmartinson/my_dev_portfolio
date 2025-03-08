@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { styleTsLineLink } from "~/styles/app.css";
 import {
   colorAccent,
   colorSecondary,
@@ -38,7 +39,7 @@ export default function TsLine({
           <span className={colorSecondary}>{name}</span>:&nbsp;
           <span className={colorAccent}>{type}</span>
           &nbsp;=&nbsp;&quot;
-          <Link to={link ? link : ""}>
+          <Link to={link ? link : ""} className={styleTsLineLink}>
             <span className={colorSurfaceWhite}>{value}</span>
           </Link>
           &quot;;
