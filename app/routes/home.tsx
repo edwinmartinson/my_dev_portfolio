@@ -23,9 +23,11 @@ export async function action({ request }: Route.ActionArgs) {
     message: formData.get("message"),
   };
 
+  const searchParams = `form-name=${body["form-name"]}&bot-field=${body["bot-field"]}&name=${body["name"]}&email=${body["email"]}&message=${body["message"]}`;
+
   await fetch(`${origin}/contact_me.html`, {
     method: "POST",
-    body: JSON.stringify(body),
+    body: searchParams,
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   });
 }
