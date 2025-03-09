@@ -42,10 +42,8 @@ export default function ContactMe() {
             className={styleContactMeForm}
             name="contact_me"
             method="POST"
-            action="/message"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
-            encType="application/x-www-form-urlencoded"
           >
             <div className={styleContactMeFormContainer}>
               <h6 className={`${typeRegularH6} ${colorSurfaceGray}`}>
@@ -60,6 +58,9 @@ export default function ContactMe() {
                   className={styleFields}
                   type="text"
                   placeholder="eg: Theo Brown"
+                  required
+                  minLength={3}
+                  maxLength={50}
                 />
               </label>
               <label className={styleFieldContainer}>
@@ -69,6 +70,9 @@ export default function ContactMe() {
                   className={styleFields}
                   type="email"
                   placeholder="eg: foo@bar.com"
+                  required
+                  minLength={5}
+                  maxLength={50}
                 />
               </label>
               <label className={styleFieldContainer}>
@@ -77,6 +81,9 @@ export default function ContactMe() {
                   name="message"
                   className={styleFields}
                   placeholder="eg: Type something..."
+                  required
+                  minLength={5}
+                  maxLength={255}
                 />
               </label>
             </div>
