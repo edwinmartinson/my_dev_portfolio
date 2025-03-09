@@ -19,6 +19,28 @@ import useOffsetTop from "~/hooks/useOffsetTop";
 import { useSiteContext } from "~/context/AppContext";
 import { useEffect } from "react";
 
+const action = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const origin = window.location.origin;
+  const myForm = e.target as HTMLFormElement;
+  const formData = new FormData(myForm);
+
+  const formObject: Record<string, string> = {};
+  formData.forEach((value, key) => {
+    formObject[key] = value.toString();
+  });
+
+  const encodedData = new URLSearchParams(formObject).toString();
+
+  fetch(`${origin}/contact_me.html`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encodedData,
+  })
+    .then(() => console.log("Form successfully submitted"))
+    .catch((error) => alert(error));
+};
+
 export default function ContactMe() {
   const [ref, offsetTop] = useOffsetTop<HTMLElement>();
   const { dispatch } = useSiteContext();
@@ -44,6 +66,7 @@ export default function ContactMe() {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            onSubmit={action}
           >
             <div className={styleContactMeFormContainer}>
               <h6 className={`${typeRegularH6} ${colorSurfaceGray}`}>

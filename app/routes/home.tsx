@@ -11,27 +11,6 @@ import ContactMe from "~/sections/ContactMe";
 import Footer from "~/sections/Footer";
 import { useWindowScroll } from "@uidotdev/usehooks";
 
-export async function action({ request }: Route.ActionArgs) {
-  const formData = await request.formData();
-  const origin = request.headers.get("origin");
-
-  const body = {
-    "form-name": formData.get("form-name"),
-    "bot-field": formData.get("bot-field"),
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  };
-
-  const searchParams = `form-name=${body["form-name"]}&bot-field=${body["bot-field"]}&name=${body["name"]}&email=${body["email"]}&message=${body["message"]}`;
-
-  await fetch(`${origin}/contact_me.html`, {
-    method: "POST",
-    body: searchParams,
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  });
-}
-
 export async function loader({}: Route.LoaderArgs) {
   return siteData;
 }
