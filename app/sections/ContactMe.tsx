@@ -1,5 +1,5 @@
 import Tag from "~/components/Tag";
-import { Form, useLoaderData } from "react-router";
+import { Form, useLoaderData, useNavigate } from "react-router";
 import {
   styleContactMe,
   styleContactMeContainer,
@@ -19,32 +19,42 @@ import useOffsetTop from "~/hooks/useOffsetTop";
 import { useSiteContext } from "~/context/AppContext";
 import { useEffect } from "react";
 
-const action = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const origin = window.location.origin;
-  const myForm = e.target as HTMLFormElement;
-  const formData = new FormData(myForm);
-
-  const formObject: Record<string, string> = {};
-  formData.forEach((value, key) => {
-    formObject[key] = value.toString();
-  });
-
-  const encodedData = new URLSearchParams(formObject).toString();
-
-  fetch(`${origin}/contact_me.html`, {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encodedData,
-  })
-    .then(() => console.log("Form successfully submitted"))
-    .catch((error) => alert(error));
-};
-
 export default function ContactMe() {
+  const { socials, works, email, sectionTitle }: SiteData = useLoaderData();
   const [ref, offsetTop] = useOffsetTop<HTMLElement>();
   const { dispatch } = useSiteContext();
-  const { socials, works, email, sectionTitle }: SiteData = useLoaderData();
+  const navigate = useNavigate();
+
+  const action = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const origin = window.location.origin;
+      const myForm = e.target as HTMLFormElement;
+      const formData = new FormData(myForm);
+
+      const formObject: Record<string, string> = {};
+      formData.forEach((value, key) => {
+        formObject[key] = value.toString();
+      });
+
+      const encodedData = new URLSearchParams(formObject).toString();
+
+      const response = await fetch(`${origin}/contact_me.html`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encodedData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      console.log("Form submitted successfully");
+      navigate("/message", { state: { redirect: false } });
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   useEffect(() => {
     dispatch({

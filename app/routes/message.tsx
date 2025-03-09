@@ -7,31 +7,24 @@ import type { Route } from "./+types/message";
 import Tag from "~/components/Tag";
 import { colorAccent, colorSecondary } from "~/styles/theme.css";
 import Xbtn from "~/components/Xbtn";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
 
-export async function action({ request }: Route.ActionArgs) {
-  const formData = await request.formData();
-
-  if (formData.get("form-name") !== "contact_me") {
-    return { redirect: true };
-  } else return { redirect: false };
-}
-
-export default function Message({ actionData }: Route.ComponentProps) {
+export default function Message({}: Route.ComponentProps) {
   const navigate = useNavigate();
-  const data = actionData;
-  const hideSection = data === undefined || data.redirect === true;
+  const location = useLocation();
+  const state = location.state as { redirect: boolean };
+  const abort = state?.redirect ?? true;
 
   useEffect(() => {
-    if (data === undefined || data.redirect === true) {
+    if (abort) {
       navigate("/");
     }
-  }, [data]);
+  }, [abort]);
 
   return (
     <main className={styleMessage}>
-      {!hideSection && (
+      {!abort && (
         <section className={styleMessageSection}>
           <div className={styleMessageDetails}>
             <Tag tag="h1" tagSize="p1" textSize="h5">
