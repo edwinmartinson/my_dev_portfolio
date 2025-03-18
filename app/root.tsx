@@ -30,7 +30,7 @@ export function meta({}: Route.MetaArgs) {
     {
       name: "description",
       content:
-        "A Full-stack web developer, with experience in crafting production ready applications with technologies like react.js, next.js and node.js. Along with robust relational databases like MySQL and PostgreSQL. With a strong focus on product design and application-data security.",
+        "👋 Hi there! The name is Edwin Martinson 😎. To keep it simple, I am a software developer with experience in building digital products, services and experiences for the web and mobile platforms. I also have expertise in product design and crafting user centered interfaces that drive product growth and adoption.",
     },
     {
       name: "keywords",

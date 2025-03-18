@@ -4,7 +4,7 @@ export const siteData = {
   name: "Edwin Martinson",
   title: "Web Developer",
   summary:
-    "Web Developer with experience in full-stack development, specializing in TypeScript, React.js and Node.js. Proficient in working with relational and document databases like MySQL, PostgreSQL and MongoDB. Passionate about user experience and interface design, with hands-on expertise in design tools like Axure RP, Figma, and Adobe XD. Successfully contributed to fintech solutions, leveraging both frontend and backend technologies to build scalable and user-friendly applications. Eager to collaborate on innovative projects and continuously expand technical expertise.",
+    "My Motto 😊, “Solving real world problems with code ”. 👈 I will get back to this, but here comes the intro 👇.👋 Hi there! The name is Edwin Martinson 😎. To keep it simple, I am a software developer with experience in building digital products, services and experiences for the web and mobile platforms. I also have expertise in product design and crafting user centered interfaces that drive product growth and adoption.\n💡 My tech stack? Well, frameworks come, frameworks go. Libraries start out well, and later fade away. And the choice of languages depend on the team and project needs. So i always say: “To be a good developer, has little to do with the frameworks, libraries or languages in your arsenal. But rather, your ability to solve real world problems with code.” This is my Motto.\n🚀 Need a developer to work on and maintain a code base in Java? Sure, I got you! Even though I've never written a line of Java in my life, I'm always willing to learn.",
   education: [
     {
       school: "University of Greenwich",
@@ -20,7 +20,7 @@ export const siteData = {
   stack: {
     languages: ["JavaScript", "Typescript", "Python"],
     frontend: ["React.js", "React Router", "Next.js"],
-    backend: ["Node.js", "Deno"],
+    backend: ["Node.js", "Deno", "Nest.js"],
     database: ["MySQL", "PostgreSQL", "MongoDB"],
     versionControl: ["Git", "GitHub"],
     operatingSystem: ["Windows", "Linux"],
