@@ -37,6 +37,10 @@ export function meta({}: Route.MetaArgs) {
       content:
         "Edwin Martinson, Web Developer, Full-stack, Software Engineer, UI/UX Designer, Product Designer, TypeScript, React.js, Node.js, Deno, MySQL, PostgreSQL",
     },
+    {
+      name: "google-site-verification",
+      content: "zHPt7dlP_pGX3vtNnl0u3Ago2RGNPEycwQ0g6b1tnyg",
+    },
   ];
 }
 
